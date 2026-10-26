@@ -1,0 +1,200 @@
+# always
+# --------------------------------
+# RASSISTISCHE / ETHNISCHE SLURS
+# --------------------------------
+
+nigger
+niggers
+nigga
+niggas
+sandnigger
+coon
+coons
+darkie
+jigaboo
+jiggaboo
+chink
+chinks
+gook
+gooks
+spic
+spics
+wetback
+wetbacks
+beaner
+beaners
+kike
+kikes
+paki
+raghead
+towelhead
+
+neger
+kanake
+kanaken
+kanacke
+kanacken
+judensau
+judenschwein
+judenpack
+zigeunerpack
+ausländerpack
+auslaenderpack
+asylantenpack
+untermensch
+untermenschen
+
+# --------------------------------
+# HOMOPHOBE / TRANSPHOBE SLURS
+# --------------------------------
+
+faggot
+faggots
+fag
+tranny
+trannies
+shemale
+
+schwuchtel
+schwuchteln
+
+# --------------------------------
+# ABLEISTISCHE / MENSCHENVERACHTENDE BELEIDIGUNGEN
+# --------------------------------
+
+retard
+retards
+retarded
+mong
+
+spast
+spasti
+mongo
+
+# --------------------------------
+# EXPLIZIT PORNOGRAFISCHE / SEXUELLE BEGRIFFE
+# --------------------------------
+
+porn
+porno
+pornography
+pornographic
+pornografie
+pornografisch
+pornhub
+xhamster
+xvideos
+hentai
+
+blowjob
+handjob
+rimjob
+masturbation
+masturbate
+masturbating
+orgasm
+ejaculation
+semen
+dildo
+vibrator
+buttplug
+gangbang
+bdsm
+camsex
+
+masturbieren
+masturbation
+orgasmus
+ejakulation
+sperma
+wichsen
+dildo
+vibrator
+buttplug
+gangbang
+fetisch
+bdsm
+sexspielzeug
+telefonsex
+camsex
+erotikchat
+nacktbilder
+nudes
+
+# strict-only
+# --------------------------------
+# STARKE ENGLISCHE SCHIMPFWÖRTER
+# --------------------------------
+
+fuck
+fucking
+fucker
+fuckers
+motherfucker
+motherfuckers
+fck
+cunt
+cunts
+bitch
+bitches
+asshole
+assholes
+arsehole
+bastard
+bastards
+dickhead
+dickheads
+shithead
+shitheads
+prick
+pricks
+twat
+twats
+wanker
+wankers
+whore
+whores
+slut
+sluts
+cocksucker
+cocksuckers
+douchebag
+douchebags
+fucktard
+fucktards
+dumbass
+jackass
+asswipe
+asshat
+scumbag
+scumbags
+
+# --------------------------------
+# STARKE DEUTSCHE SCHIMPFWÖRTER
+# --------------------------------
+
+hurensohn
+hurensöhne
+hurensoehne
+hsohn
+arschloch
+arschlöcher
+arschloecher
+wichser
+fotze
+fotzen
+schlampe
+schlampen
+hure
+huren
+pisser
+drecksau
+drecksschwein
+scheißkerl
+scheisskerl
+missgeburt
+kackbratze
+schwanzlutscher
+drecksack
+
+# always

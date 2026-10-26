@@ -1,0 +1,7 @@
+# Version 1 verwendet nur die Python Standard Library.
+# Text-to-Speech:
+pyttsx3
+# Spracheingabe:
+SpeechRecognition
+sounddevice
+numpy

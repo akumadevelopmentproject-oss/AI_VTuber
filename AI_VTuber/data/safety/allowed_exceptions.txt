@@ -1,0 +1,2 @@
+# Eigene lokale Ausnahmen: ein Begriff oder Ausdruck pro Zeile.
+# Ein exakter Eintrag hier hat Vorrang vor der Sperrliste.

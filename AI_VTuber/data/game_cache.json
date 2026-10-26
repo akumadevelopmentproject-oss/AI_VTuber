@@ -1,0 +1,37 @@
+{
+    "2073620": {
+        "appid": 2073620,
+        "name": "Arena Breakout: Infinite",
+        "genres": [
+            "Action",
+            "Adventure",
+            "Massively Multiplayer",
+            "RPG",
+            "Strategy",
+            "Free To Play"
+        ],
+        "tags": [
+            "Free to Play",
+            "Extraction Shooter",
+            "Multiplayer",
+            "FPS",
+            "Realistic",
+            "Gun Customization",
+            "Shooter",
+            "First-Person",
+            "Tactical",
+            "Heist"
+        ],
+        "developer": "Morefun Studios",
+        "publisher": "Morefun Studios",
+        "short_description": "Arena Breakout: Infinite is a high-stakes tactical extraction shooter where every decision matters. Fight, loot, and extract—or lose it all. With stunningly realistic visuals, lifelike sound, and unforgiving PvPvE combat, every raid is a gamble between glory and ruin.",
+        "release_date": "Sep 15, 2025",
+        "steam_url": "https://store.steampowered.com/app/2073620/",
+        "source": "steam",
+        "verified": true,
+        "updated_at": "2026-10-14T16:06:55",
+        "aliases": [
+            "arena breakout"
+        ]
+    }
+}

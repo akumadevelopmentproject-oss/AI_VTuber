@@ -1,0 +1,20 @@
+Manually updated local moderation data.
+Runtime filtering reads local files only; no startup download is performed.
+
+Source: LDNOOBW
+Repository: https://github.com/LDNOOBW/List-of-Dirty-Naughty-Obscene-and-Otherwise-Bad-Words
+File: en
+Retrieved: 2026-10-14
+License: CC BY 4.0
+
+Source: google-profanity-words
+Repository: https://github.com/coffee-and-fun/google-profanity-words
+File: data/en.txt
+Retrieved: 2026-10-14
+License: MIT
+
+Source: LDNOOBW
+Repository: https://github.com/LDNOOBW/List-of-Dirty-Naughty-Obscene-and-Otherwise-Bad-Words
+File: de
+Retrieved: 2026-10-14
+License: CC BY 4.0
