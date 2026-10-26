@@ -31,9 +31,10 @@ PRONUNCIATION_PATH = (
 
 
 class TTS:
-    def __init__(self):
+    def __init__(self, public=False):
         self.enabled = TTS_ENABLED
-        self.pronunciation = self._load_pronunciation()
+        self.public = public
+        self.pronunciation = {} if public else self._load_pronunciation()
         self._pronunciation_pattern = self._build_pattern(self.pronunciation)
 
     @staticmethod
@@ -202,7 +203,9 @@ class TTS:
                 self._speak_once(tts_text)
                 return
             except Exception as error:
+                # Public output must not include local paths or service error bodies.
+                detail = type(error).__name__ if self.public else str(error)
                 if attempt == 0:
-                    print(f"Warnung: Vorlesen fehlgeschlagen ({error}). Neuer Versuch.")
+                    print(f"Warnung: Vorlesen fehlgeschlagen ({detail}). Neuer Versuch.")
                 else:
-                    print(f"Warnung: Vorlesen erneut fehlgeschlagen ({error}). Luna spricht diesmal nicht.")
+                    print(f"Warnung: Vorlesen erneut fehlgeschlagen ({detail}). Luna spricht diesmal nicht.")

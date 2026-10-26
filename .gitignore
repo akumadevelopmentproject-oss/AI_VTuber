@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+*.log
+AI_VTuber/data/*.json
+!AI_VTuber/data/stt_aliases.json
+!AI_VTuber/data/pronunciation.json
+AI_VTuber/data/*.bak
+AI_VTuber/data/*.tmp
+AI_VTuber/data/private/
