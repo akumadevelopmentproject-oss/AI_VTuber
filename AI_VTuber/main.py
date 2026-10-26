@@ -1,3 +1,4 @@
+import argparse
 import re
 import sys
 import time
@@ -6,6 +7,7 @@ from getpass import getpass
 
 from config.settings import MEMORY_DEBUG, VOICE_INPUT_ENABLED
 from core.ai import AI
+from core.public_chat import PublicChat, public_response
 from core.brain import get_brain
 from core.luna_goals import get_luna_goals
 from core.luna_state import get_luna_state
@@ -85,6 +87,14 @@ def extract_repeat_text(text):
 
 
 def answer_user(ai, tts, user_text, label):
+    # Untrusted audience branch MUST precede all private topic/memory/goal calls.
+    if isinstance(ai, PublicChat):
+        answer = public_response(ai.chat(user_text))
+        if answer is not None:
+            print(f"{label}: {answer}\n")
+            tts.speak(answer)
+        return
+
     if is_blocked_input(user_text):
         return
 
@@ -225,17 +235,17 @@ def answer_user(ai, tts, user_text, label):
 def voice_loop(ai, tts, stt):
     print("Luna gestartet - Sprachmodus")
     print("Sprich einfach mit Luna.")
-    print('Zum Beenden sage "Luna beenden".\n')
+    print("Beenden nur lokal mit Strg+C. Gesprochene Befehle schalten Luna nicht aus.\n")
 
     while True:
         user_text = stt.listen()
         if not user_text:
             continue
 
-        # Exit wird immer vor dem Safety-Filter geprüft
+        # A microphone does not authenticate its speaker; stream audio could say this.
         if is_exit_command(user_text):
-            print_exit_message()
-            break
+            print("Beenden nur lokal mit Strg+C.")
+            continue
 
         answer_user(ai, tts, user_text, "Luna")
 
@@ -263,9 +273,15 @@ def text_loop(ai, tts):
         answer_user(ai, tts, user_text, "KI")
 
 
-def run():
-    ai = AI()
-    tts = TTS()
+def run(private=False):
+    # Public is the safe default, including local microphone input during a stream.
+    ai = AI() if private else PublicChat()
+    tts = TTS(public=not private)
+    if private:
+        print("PRIVATMODUS: Nicht im Stream benutzen. Private Erinnerungen sind hier verfügbar.")
+    else:
+        print("STREAMMODUS: Kein privates Gedächtnis; Zuschauer erhalten keine Steuerrechte.")
+    print("Lokaler Not-Aus: Strg+C im Luna-Fenster, alternativ Fenster schließen.")
 
     if VOICE_INPUT_ENABLED:
         stt = STT()
@@ -284,8 +300,12 @@ def main():
         except (AttributeError, ValueError):
             pass
 
+    parser = argparse.ArgumentParser(description="Luna: standardmäßig öffentlicher Streammodus")
+    parser.add_argument('--private', action='store_true',
+                        help='Privates Gedächtnis aktivieren; nicht für Streams verwenden')
+    args = parser.parse_args()
     try:
-        run()
+        run(private=args.private)
     except KeyboardInterrupt:
         print()
         print_exit_message()

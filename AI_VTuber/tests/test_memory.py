@@ -263,7 +263,7 @@ class MemoryTests(unittest.TestCase):
         _, _, output = self.run_answer("Ich mag Minecraft.")
         self.assertNotIn("[MEMORY]", output)
 
-    def test_exit_with_fillers_never_reaches_ollama_or_memory(self):
+    def test_voice_exit_is_ignored_and_never_reaches_ollama_or_memory(self):
         phrases = (
             "Luna beenden", "okay Luna beenden", "ok Luna beenden", "okay, Luna beenden",
             "bitte Luna beenden", "also Luna beenden", "okay beenden",
@@ -279,15 +279,19 @@ class MemoryTests(unittest.TestCase):
                         self.items = iter((phrase,))
 
                     def listen(self):
-                        return next(self.items)
+                        try:
+                            return next(self.items)
+                        except StopIteration:
+                            raise KeyboardInterrupt
 
                 with patch.object(main, "get_memory", side_effect=AssertionError):
                     with patch.object(main, "is_blocked_input", side_effect=AssertionError):
                         with contextlib.redirect_stdout(io.StringIO()) as output:
-                            main.voice_loop(ai, tts, Stt())
+                            with self.assertRaises(KeyboardInterrupt):
+                                main.voice_loop(ai, tts, Stt())
                 self.assertEqual((ai.calls, tts.spoken), ([], []))
                 self.assertTrue(
-                    output.getvalue().endswith("Luna wird beendet.\nBis später, Miki!\n")
+                    output.getvalue().endswith("Beenden nur lokal mit Strg+C.\n")
                 )
 
     def test_questions_about_quitting_are_not_exit(self):
